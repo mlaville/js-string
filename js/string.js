@@ -1,7 +1,8 @@
 /**
  * string.js
  */
- 
+
+
 var textContentById = function(strId, val) {
   var elmt = document.getElementById(strId);
   
@@ -47,7 +48,9 @@ var calc = {
     return textContentById('normalized', textContentById('normalize').localeCompare( textContentById('normalize-form') ) );
   },
   padEnd : function() {
-    return textContentById('padend-result', textContentById('padEnd').padEnd( +textContentById('padend-length'), textContentById('padend-motif') ) );
+    var origine = new String( textContentById('padEnd') );
+    
+    return textContentById('padend-result', origine.padEnd( +textContentById('padend-length'), textContentById('padend-motif') ) );
   },
   padStart : function() {
     return textContentById('padstart-result', textContentById('padStart').padStart( +textContentById('padstart-length'), textContentById('padstart-motif') ) );
