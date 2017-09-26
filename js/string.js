@@ -30,7 +30,10 @@ var calc = {
     return textContentById('inclus', textContentById('includes').includes(textContentById('includes-arg')) ? 'true' : 'false' );
   },
   match : function() {
-    return textContentById('matched', textContentById('match').match( textContentById('regex-match') ) );
+    var motif = new RegExp( textContentById('regex-match') ),
+      match = textContentById('match').match( motif );
+
+    return textContentById('matched', match != null ? "[ '" + match.join("', '") + "']": 'null' );
   },
   repeat : function() {
     return textContentById('repeated', textContentById('repeat').repeat( +textContentById('occurence-repeat') ) );

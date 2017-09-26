@@ -21,6 +21,9 @@ var calc = {
   },
   decamelcase: function() {
     return textContentById('decamelcased', textContentById('decamelcase').decamelcase( textContentById('decamelcase-sep') ) );
+  },
+  parseSearch: function() {
+    return textContentById('parsesearched', JSON.stringify( textContentById('parseSearch').parseSearch( textContentById('decamelcase-sep') ) ) );
   }
 }
 
@@ -37,6 +40,9 @@ calc.camelcase();
 document.getElementById('decamelcase').addEventListener( 'keyup', calc.decamelcase );
 document.getElementById('decamelcase-sep').addEventListener( 'keyup', calc.decamelcase );
 calc.decamelcase();
+
+document.getElementById('parseSearch').addEventListener( 'keyup', calc.parseSearch );
+calc.parseSearch();
 
 
 Array.from( document.querySelectorAll('[contenteditable]') ).forEach( function(elmt) {
